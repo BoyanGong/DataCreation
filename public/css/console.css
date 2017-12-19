@@ -1,0 +1,14 @@
+
+
+#term {
+  height: 100%;
+}
+
+.terminal, .cmd, .terminal .terminal-output div div, .cmd .prompt {
+    font-size: 1.2em;
+    line-height: 20px;
+}
+
+#content {
+  height: calc(100% - 75px);
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../partials/meta', {page: page}); %>
+  <!-- base stylesheets -->
+  <%- include('../partials/common_css'); %>
+
+  <!-- module stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css">
+
+  <!-- page stylesheets -->
+  <link type="text/css" rel="stylesheet" href="/css/newdata.css" />
+
+
+</head>
+<body>
+  <%- include('../partials/left_nav', {page: page}); %>
+  <%- include('../partials/top_nav', {page: page}); %>
+
+  <div id="content">
+
+    <section class="main-content">
+
+      <div id="jsGrid"></div>
+
+      <div id="newdata-modal" class="newdata-modal">
+
+        <form class="dialog-content newdata-content" id="dialog-textboxes">
+          <button class='dialog-btn' type='submit' id='insertNewRow'>Add</button>
+          <button class='dialog-btn' type='button' id='cancel'>Cancel</button>
+        </form>
+
+      </div>
+
+      <div class="table-buttons-wrapper">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 text-center">
+            <input type="button" class="home table-btn" id="home" value="Home" onclick = "document.location.href = '/enrollment'" />
+            <input type="button" class="save table-btn" id="save" value="Submit" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+
+  <script>
+    var user = <%- JSON.stringify(user) %>;
+    var page = <%- JSON.stringify(page) %>;
+  </script>
+
+
+  <!-- base scripts -->
+  <%- include('../partials/common_scripts'); %>
+
+  <!-- modules scripts -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+  <!-- page scripts -->
+  <script type="text/javascript" src='/js/enrollment/fields.js'></script>
+  <script type="text/javascript" src='/js/common/build_fields.js'></script>
+  <script type="text/javascript" src='/js/enrollment/newdata/table.js'></script>
+  <script type="text/javascript" src='/js/enrollment/newdata/popup.js'></script>
+  <script>
+    newDataTable.init("#jsGrid");
+    newDataPopup.init("#newdata-modal","#jsGrid", enrollmentPopupFields);
+  </script>
+
+</body>
+</html>

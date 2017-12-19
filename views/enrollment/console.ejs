@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../partials/meta', {page: page}); %>
+
+  <!-- base stylesheets -->
+  <%- include('../partials/common_css'); %>
+
+  <!-- module stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="/css/vendor/terminal/jquery.terminal.min.css" />
+
+  <!-- page stylesheets -->
+  <link rel="stylesheet" href="/css/console.css" />
+
+
+</head>
+<body>
+  <%- include('../partials/left_nav', {page: page}); %>
+  <%- include('../partials/top_nav', {page: page}); %>
+
+  <div id="content">
+    <div id="term"></div>
+  </div>
+
+
+  <!-- base scripts -->
+  <%- include('../partials/common_scripts'); %>
+
+  <!-- modules scripts -->
+  <script type="text/javascript" src="/js/vendor/terminal/jquery.terminal.min.js"></script>
+  <script type="text/javascript" src="/js/vendor/terminal/jquery.mousewheel-min.js"></script>
+
+  <!-- custom Javascript -->
+  <script type="text/javascript" src="/js/console.js"></script>
+
+</body>
+</html>

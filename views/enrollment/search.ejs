@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <%- include('../partials/meta', {page: page}); %>
+  <!-- base stylesheets -->
+  <%- include('../partials/common_css'); %>
+
+  <!-- module stylesheets -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid-theme.min.css">
+
+  <!-- page stylesheets -->
+
+
+</head>
+<body>
+
+  <%- include('../partials/left_nav', {page: page}); %>
+  <%- include('../partials/top_nav', {page: page}); %>
+  <div id="content">
+    <div class="lock" hidden></div>
+    <section class="main-content">
+
+      <div id="jsGrid"></div>
+
+      <div class="table-buttons-wrapper">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-xs-12 text-center">
+            <input type="button" class="home table-btn" id="home" value="Home" onclick = "window.location.href = '/enrollment'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    var user = <%- JSON.stringify(user) %>;
+    var page = <%- JSON.stringify(page) %>;
+  </script>
+
+  <!-- base scripts -->
+  <%- include('../partials/common_scripts'); %>
+
+  <!-- modules scripts -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jsgrid/1.5.3/jsgrid.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+
+  <!-- page scripts -->
+  <script type="text/javascript" src='/js/enrollment/fields.js'></script>
+  <script type="text/javascript" src='/js/common/build_fields.js'></script>
+  <script type="text/javascript" src='/js/enrollment/search/table.js'></script>
+  <script type="text/javascript" src='/js/common/build_query_string.js'></script>
+  <script>
+    searchTable.init("#jsGrid");
+  </script>
+
+</body>
+</html>
